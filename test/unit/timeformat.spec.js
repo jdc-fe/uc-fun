@@ -14,6 +14,11 @@ describe('timeformat', () => {
     assert(result === fmt);
   });
 
+  it('error: if fmt is empty', () => {
+    const result = timeformat('2018-10-10', '');
+    assert(result === '');
+  });
+
   it('error: if date is invalid', () => {
     const result = timeformat('1=2=-3', fmt);
     assert(result === fmt);
