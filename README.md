@@ -25,7 +25,20 @@
 
 
 ## 使用
-> `npm install -S git+http://domain.git`
+- `npm install -S git+http://domain.git`
+- `npm install babel-plugin-transform-imports --save-dev `
+-  .babelrc plugin参数增加配置项
+```
+  [
+      "transform-imports",
+      {
+        "uc-fun": {
+          "transform": "uc-fun/lib/${member}",
+          "preventFullImport": true
+        }
+      }
+    ]
+```
 
 
 ## 用法
