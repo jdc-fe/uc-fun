@@ -17,6 +17,13 @@
 - 提交 merge request
 - merge to master
 
+### 附录
+- 单测：
+  - 测试框架 `https://mochajs.org/`
+  - 断言库 `https://github.com/power-assert-js/power-assert`
+  - 测试覆盖率 `https://github.com/istanbuljs/nyc`
+
+
 ## 使用
 > `npm install -S git+http://domain.git`
 

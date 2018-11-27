@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "DIR=example node src/index.js",
-    "test": "mocha test/*.spec.js test/**/*.spec.js",
+    "test": "nyc mocha test/*.spec.js test/**/*.spec.js",
     "lint": "eslint ."
   },
   "author": "uc-weber",
