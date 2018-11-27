@@ -5,27 +5,26 @@
   "main": "src/index.js",
   "scripts": {
     "start": "DIR=example node src/index.js",
-    "test": "nyc mocha test/*.spec.js test/**/*.spec.js",
+    "test": "nyc mocha -r babel-core/register --recursive ./test",
     "lint": "eslint ."
   },
   "author": "uc-weber",
   "license": "ISC",
-  "dependencies": {
-    "commander": "^2.11.0"
-  },
+  "dependencies": {},
   "repository": {
     "type": "git",
-    "url": "https://git.jd.com/uc-weapons"
-  },
-  "bugs": {
-    "url": "https://git.jd.com/uc-weapons"
+    "url": "http://git.jd.com/web-uc-weapons/uc-fun.git"
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.1",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-power-assert": "^2.0.0",
+    "babel-preset-stage-3": "^6.24.1",
     "eslint": "^5.9.0",
-    "eslint-config-airbnb": "^17.1.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
+    "intelli-espower-loader": "^1.0.1",
     "mocha": "^4.0.1",
     "nyc": "^13.1.0",
     "power-assert": "^1.6.1",
@@ -33,5 +32,12 @@
   },
   "keywords": [
     "functions"
-  ]
+  ],
+  "babel": {
+    "presets": [
+      "stage-3",
+      "latest",
+      "power-assert"
+    ]
+  }
 }
