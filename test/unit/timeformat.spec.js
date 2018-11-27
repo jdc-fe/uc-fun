@@ -1,3 +1,4 @@
+const assert = require('power-assert');
 const timeformat = require('../../src/timeformat');
 
 describe('timeformat', () => {
@@ -10,6 +11,16 @@ describe('timeformat', () => {
 
   it('error: if rowDate is empty', () => {
     const result = timeformat('', fmt);
+    assert(result === fmt);
+  });
+
+  it('error: if fmt is empty', () => {
+    const result = timeformat('2018-10-10', '');
+    assert(result === '');
+  });
+
+  it('error: if date is invalid', () => {
+    const result = timeformat('1=2=-3', fmt);
     assert(result === fmt);
   });
 });

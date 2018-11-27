@@ -2,7 +2,7 @@
  * format type by fmt
  * @param {Date|String|number}  date [date instance|date string|timestamp]
  * @param {String}  fmt eg:YYYY-MM-DD HH:mm:ss
- * @return {String} formated date
+ * @return {Object} formated date
  *
  * @example
  *  timeformat('2018-10-10 10:30:20', 'MM/DD HH:mm)
@@ -19,9 +19,9 @@
  */
 module.exports = (rowDate, fmt) => {
   if (!rowDate || !fmt) return fmt;
-
   // get correct date
   const date = new Date(rowDate);
+
   if (date.toString() === 'Invalid Date') {
     return fmt;
   }
