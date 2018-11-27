@@ -1,4 +1,3 @@
-const assert = require('power-assert');
 const timeformat = require('../../src/timeformat');
 
 describe('timeformat', () => {
@@ -21,6 +20,6 @@ describe('timeformat', () => {
 
   it('error: if date is invalid', () => {
     const result = timeformat('1=2=-3', fmt);
-    assert(result === fmt);
+    assert.ok(result === fmt);
   });
 });
