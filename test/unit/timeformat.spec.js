@@ -1,4 +1,4 @@
-const timeformat = require('../../src/timeformat');
+import timeformat from '../../src/timeformat';
 
 describe('timeformat', () => {
   const fmt = 'MM/DD/YYYY HH:mm:ss';
@@ -20,6 +20,6 @@ describe('timeformat', () => {
 
   it('error: if date is invalid', () => {
     const result = timeformat('1=2=-3', fmt);
-    assert.ok(result === fmt);
+    assert(result !== fmt);
   });
 });
