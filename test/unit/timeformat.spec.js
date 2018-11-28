@@ -22,4 +22,4 @@ describe('timeformat', () => {
     const result = timeformat('1=2=-3', fmt);
     assert(result !== fmt);
   });
-})
+});
