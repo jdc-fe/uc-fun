@@ -8,6 +8,10 @@
     "test": "nyc mocha -r babel-core/register --recursive ./test",
     "lint": "eslint ."
   },
+  "pre-push": [
+    "lint",
+    "test"
+  ],
   "author": "uc-weber",
   "license": "ISC",
   "dependencies": {},
@@ -28,6 +32,8 @@
     "mocha": "^4.0.1",
     "nyc": "^13.1.0",
     "power-assert": "^1.6.1",
+    "pre-commit": "^1.2.2",
+    "pre-push": "^0.1.1",
     "sinon": "^4.1.0"
   },
   "keywords": [
