@@ -5,9 +5,14 @@
   "main": "src/index.js",
   "scripts": {
     "start": "DIR=example node src/index.js",
-    "test": "nyc mocha -r babel-core/register --recursive ./test",
+    "test": "mocha -r babel-core/register --recursive ./test",
+    "coverage": "nyc --check-coverage --functions 100 --branches 90 --lines 90 npm test",
     "lint": "eslint ."
   },
+  "pre-push": [
+    "lint",
+    "coverage"
+  ],
   "author": "uc-weber",
   "license": "ISC",
   "dependencies": {},
@@ -28,6 +33,7 @@
     "mocha": "^4.0.1",
     "nyc": "^13.1.0",
     "power-assert": "^1.6.1",
+    "pre-push": "^0.1.1",
     "sinon": "^4.1.0"
   },
   "keywords": [

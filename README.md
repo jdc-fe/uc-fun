@@ -17,6 +17,11 @@
 - 提交 merge request
 - merge to master
 
+### 单测覆盖率
+- functions = 100%
+- branches > 90%
+- lines > 90%
+
 ### 附录
 - 单测：
   - 测试框架 `https://mochajs.org/`
