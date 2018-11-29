@@ -13,7 +13,7 @@ import {
 const tagObject = {};
 const tagNumber = 1;
 const tagArray = [];
-const tagFunction = new Function();
+const tagFunction = () => {};
 const tagDate = new Date();
 const tagString = 'hello';
 const tagUndefined = undefined;

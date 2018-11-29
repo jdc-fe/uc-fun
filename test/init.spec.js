@@ -1,3 +1,3 @@
 global.assert = require('power-assert');
 
-// global.sinon = require('sinon');
+global.sinon = require('sinon');
