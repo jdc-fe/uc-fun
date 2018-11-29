@@ -20,4 +20,8 @@ describe('baseDataType', () => {
     assert(getType(tagUndefined) === 'Undefined');
     assert(getType(tagNull) === 'Null');
   });
+
+  it('error: param is empty', () => {
+    assert(getType() === 'Undefined');
+  });
 });
