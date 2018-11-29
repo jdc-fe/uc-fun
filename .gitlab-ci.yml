@@ -10,6 +10,7 @@ cache:
 .build_doc: &build_doc
   stage: build
   script:
+    - npm i
     - npm run doc
   artifacts:
     name: uc-fun-doc."$CI_BUILD_REF"
