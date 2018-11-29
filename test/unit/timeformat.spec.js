@@ -1,4 +1,4 @@
-import timeformat from '../../src/timeformat';
+import timeformat from '../../src/timeFormat';
 
 describe('timeformat', () => {
   const fmt = 'MM/DD/YYYY HH:mm:ss';

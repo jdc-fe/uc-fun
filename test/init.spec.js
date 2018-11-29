@@ -1,3 +1,5 @@
-global.assert = require('power-assert');
+require('babel-core/register');
+require('babel-polyfill');
 
-// global.sinon = require('sinon');
+global.assert = require('power-assert');
+global.sinon = require('sinon');
