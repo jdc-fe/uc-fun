@@ -6,7 +6,7 @@
   "scripts": {
     "start": "DIR=example node src/index.js",
     "doc": "esdoc",
-    "test": "mocha -r babel-core/register --recursive ./test",
+    "test": "mocha --recursive ./test",
     "coverage": "nyc --check-coverage --functions 100 --branches 90 --lines 90 npm test",
     "lint": "eslint ."
   },
