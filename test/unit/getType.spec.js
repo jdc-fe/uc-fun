@@ -1,24 +1,15 @@
 import getType from '../../src/getType';
 
-const tagObject = {};
-const tagNumber = 1;
-const tagArray = [];
-const tagFunction = () => { };
-const tagDate = new Date();
-const tagString = 'hello';
-const tagUndefined = undefined;
-const tagNull = null;
-
 describe('baseDataType', () => {
   it('normal: show data type', () => {
-    assert(getType(tagObject) === 'Object');
-    assert(getType(tagNumber) === 'Number');
-    assert(getType(tagArray) === 'Array');
-    assert(getType(tagFunction) === 'Function');
-    assert(getType(tagDate) === 'Date');
-    assert(getType(tagString) === 'String');
-    assert(getType(tagUndefined) === 'Undefined');
-    assert(getType(tagNull) === 'Null');
+    assert(getType({}) === 'Object');
+    assert(getType(1) === 'Number');
+    assert(getType([]) === 'Array');
+    assert(getType(() => { }) === 'Function');
+    assert(getType(new Date()) === 'Date');
+    assert(getType('tagString') === 'String');
+    assert(getType(undefined) === 'Undefined');
+    assert(getType(null) === 'Null');
   });
 
   it('error: param is empty', () => {
