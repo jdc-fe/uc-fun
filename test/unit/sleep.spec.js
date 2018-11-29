@@ -2,19 +2,22 @@ import sleep from '../../src/sleep';
 
 describe('sleep', () => {
   let clock;
-  let val = 0;
   before(() => { clock = sinon.useFakeTimers(); });
   after(() => { clock.restore(); });
 
   it('normal: should run function after delay time', () => {
-    const changeVal = async () => {
+    const callFunc = async (func) => {
       await sleep(100);
-      val = 1;
+      func();
     };
-    changeVal();
+    const callback = sinon.fake();
+    callFunc(callback);
+
     clock.tick(99);
-    assert(val === 0);
+    assert(callback.notCalled);
+
     clock.tick(1);
-    assert(val === 1);
+    assert.strictEqual(new Date().getTime(), 100);
+    assert(callback.calledOnce);
   });
 });

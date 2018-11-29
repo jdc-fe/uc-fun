@@ -1,6 +1,6 @@
 /**
  * format type by fmt
- * @param {Date|String|number}  date [date instance|date string|timestamp]
+ * @param {Date|String|number}  rowDate [date instance|date string|timestamp]
  * @param {String}  fmt eg:YYYY-MM-DD HH:mm:ss
  * @return {Object} formated date
  *
