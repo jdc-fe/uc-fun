@@ -30,7 +30,7 @@
 
 
 ## 使用
-- `npm install -S git+http://domain.git`
+- `npm install -S git+http://git.jd.com/web-uc-weapons/uc-fun.git`
 - `npm install babel-plugin-transform-imports --save-dev `
 -  .babelrc plugin参数增加配置项
 ```
@@ -38,12 +38,13 @@
       "transform-imports",
       {
         "uc-fun": {
-          "transform": "uc-fun/lib/${member}",
+          "transform": "uc-fun/src/${member}",
           "preventFullImport": true
         }
       }
     ]
 ```
+- `import { timeFormat } from 'uc-fun'; `
 
 
 ## 用法
