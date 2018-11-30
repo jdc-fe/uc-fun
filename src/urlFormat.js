@@ -4,8 +4,8 @@ const querystring = require('querystring');
 /**
  * @param {String} url [url string with '?']
  *  eg 'https://www.jd.com?paramKey=paramValue' | '?paramKey=paramValue'
- *
  * @return {Object} object
+ *
  * @example
  *  urlFormat(https://www.jd.com?key=value)
  *  => { key: 'value' }
