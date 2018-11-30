@@ -1,9 +1,8 @@
 /**
- * 延迟执行函数， 返回promise
- * @param {function} func 待执行函数
- * @param {int} duration  延迟时间， 毫秒
- * @param {any} args      待执行函数参数
+ * 睡眠指定时间 返回promise实例
+ * @param {int} duration  睡眠时间, 毫秒
  * @return {Promise Instance} Promise 实例
+ *
  * @example
  * sleep(100)
  * => Promise {<pending>}
