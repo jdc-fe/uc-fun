@@ -3,7 +3,7 @@
  * @param {any} target
  * @return {String} data type
  *
- * * @example
+ * @example
  *  getType({})
  *  => 'Object'
  *
