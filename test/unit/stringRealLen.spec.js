@@ -1,8 +1,17 @@
-import stringEllipsis from '../../src/stringEllipsis';
+import stringRealLen from '../../src/stringRealLen';
 
-describe('timeformat', () => {
+describe('stringRealLen', () => {
   it('normal', () => {
-    console.log(stringEllipsis('aaabbbccc', 3));
+    const exa = stringRealLen('a中文');
+    assert(exa === 5);
   });
 
+  it('error: param is empty', () => {
+    const exa = stringRealLen();
+    assert(exa === 0);
+  });
+  it('error: param is not string type', () => {
+    const exa = stringRealLen(new Date());
+    assert(exa === 0);
+  });
 });

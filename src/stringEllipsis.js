@@ -1,10 +1,18 @@
 import stringRealLen from './stringRealLen';
 import getType from './getType';
+import isBigger from './isBigger';
 /**
  * 当字符超出一定长度后用省略号代替
+ * @param {String} str 需要处理的字符串
+ * @param {Number} len 字符串长度限制
+ * @return {String} 处理后的字符串
  *
- * @param {*} str origin string
- * @param {*} len string length limit
+ * @example
+ *  stringEllipsis('aaabbb',3)
+ *  => 'aaa...'
+ *
+ *  stringEllipsis(()=>{},3)
+ *  => ''
  */
 export default (str, len) => {
   if (getType(str) !== 'String') return '';
@@ -16,5 +24,4 @@ export default (str, len) => {
     const curLen = stringRealLen(curStr);
     if (curLen > len) return `${curStr.substr(0, counter - 1)}...`;
   }
-  return str;
-}
+};
