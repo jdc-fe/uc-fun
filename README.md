@@ -17,8 +17,34 @@
 - 提交 merge request
 - merge to master
 
+### 单测覆盖率
+- functions = 100%
+- branches > 90%
+- lines > 90%
+
+### 附录
+- 单测：
+  - 测试框架 `https://mochajs.org/`
+  - 断言库 `https://github.com/power-assert-js/power-assert`
+  - 测试覆盖率 `https://github.com/istanbuljs/nyc`
+
+
 ## 使用
-> `npm install -S git+http://domain.git`
+- `npm install -S git+http://git.jd.com/web-uc-weapons/uc-fun.git`
+- `npm install babel-plugin-transform-imports --save-dev `
+-  .babelrc plugin参数增加配置项
+```
+  [
+      "transform-imports",
+      {
+        "uc-fun": {
+          "transform": "uc-fun/src/${member}",
+          "preventFullImport": true
+        }
+      }
+    ]
+```
+- `import { timeFormat } from 'uc-fun'; `
 
 
 ## 用法
