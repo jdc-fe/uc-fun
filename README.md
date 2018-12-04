@@ -15,6 +15,8 @@
 - `npm run test`
 - `git push origin feature-<feature name>`
 - 提交 merge request
+- merge to dev
+- 审核通过后， 修改 package.json version
 - merge to master
 
 ### 单测覆盖率
