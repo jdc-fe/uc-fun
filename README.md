@@ -36,7 +36,7 @@
 
 
 ## 使用
-- `npm install -S http://test-uc.urban-computing.cn/npmjs/uc-fun/0.1.0.tar.gz`
+- `npm install -S http://storage.urban-computing.cn/npmjs/uc-fun/0.1.0.tar.gz`
 - `npm install babel-plugin-transform-imports --save-dev `
 -  .babelrc plugin参数增加配置项
 ```json
