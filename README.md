@@ -34,25 +34,27 @@
 
 
 ## 使用
-- `npm install -S git+http://git.jd.com/web-uc-weapons/uc-fun.git`
+- `npm install -S http://test-uc.urban-computing.cn/npmjs/uc-fun/0.1.0.tar.gz`
 - `npm install babel-plugin-transform-imports --save-dev `
 -  .babelrc plugin参数增加配置项
-```
-  [
-      "transform-imports",
-      {
-        "uc-fun": {
-          "transform": "uc-fun/src/${member}",
-          "preventFullImport": true
+```json
+// package.json
+{
+  "babel": {
+    "plugins": [
+      ["transform-imports",
+        {
+          "uc-fun": {
+            "transform": "uc-fun/${member}",
+            "preventFullImport": true
+          }
         }
-      }
+      ]
     ]
+  }
+}
 ```
 - `import { timeFormat } from 'uc-fun'; `
-
-
-## 用法
-
 
 ## 环境
 ### 开发环境

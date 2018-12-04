@@ -3,6 +3,9 @@ stages:
   - build
   - deploy
 
+variables:
+  version: 0.1.0
+
 cache:
   paths:
   - node_modules
@@ -42,6 +45,16 @@ deploy_dev:
     - dev
   variables:
     SERVER: $SERVER_dev
+
+publish:
+  stage: deploy
+  script:
+    - tar -czf $version.tar.gz src package.json README.md
+    - scp $version.tar.gz $SERVER_test:$NPM_REPO
+  only:
+    - master
+  tags:
+    - ssh-deploy
 
 # 测试环境作为正式环境来用
 deploy_staging:
