@@ -5,8 +5,8 @@
 
 ## 开发
 ### clone项目
-- `git clone http://git.jd.com/domain/functions.git`
-- `cd functions`
+- `git clone http://git.jd.com/web-uc-weapons/uc-fun.git`
+- `cd uc-fun`
 - `npm install`
 
 ### 开发一个feature
@@ -27,6 +27,10 @@
   - 测试框架 `https://mochajs.org/`
   - 断言库 `https://github.com/power-assert-js/power-assert`
   - 测试覆盖率 `https://github.com/istanbuljs/nyc`
+  - 模块调试 `https://github.com/atian25/blog/issues/17 `
+  - Airbnb JavaScript 风格指南 `https://github.com/lin-123/javascript `
+  - 命名规则规范 `https://cn.vuejs.org/v2/style-guide/index.html#优先级-B-的规则：强烈推荐-增强可读性 `
+  - sinon `https://sinonjs.org/ `
 
 
 ## 使用

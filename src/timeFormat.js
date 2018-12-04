@@ -2,7 +2,7 @@
  * format type by fmt
  * @param {Date|String|number}  rowDate [date instance|date string|timestamp]
  * @param {String}  fmt eg:YYYY-MM-DD HH:mm:ss
- * @return {Object} formated date
+ * @return {String} formated date
  *
  * @example
  *  timeformat('2018-10-10 10:30:20', 'MM/DD HH:mm)
