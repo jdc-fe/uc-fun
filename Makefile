@@ -1,12 +1,8 @@
-.PHONY: test clean unit e2e
+.PHONY: build
 
-dev:
-	DIR=example node src/index.js
+build:
+	tar -czf uc-fun.tar.gz src package.json README.md
 
-publish:
-	npm publish
-
-test:
-	./node_modules/.bin/mocha \
-	--require babel-core/register \
-	--recursive ./test
+unzip:
+	rm -rf demo/* &&\
+	tar -zxvf uc-fun.tar.gz -C demo

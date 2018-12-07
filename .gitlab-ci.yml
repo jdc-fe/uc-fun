@@ -43,6 +43,17 @@ deploy_dev:
   variables:
     SERVER: $SERVER_dev
 
+publish:
+  stage: deploy
+  script:
+    - export PACKAGE_VERSION=$(awk '/version/{gsub(/("|",)/,"",$2);print $2};' package.json)
+    - tar -czf $PACKAGE_VERSION.tar.gz src package.json README.md
+    - scp $PACKAGE_VERSION.tar.gz $SERVER_test:$NPM_REPO
+  only:
+    - master
+  tags:
+    - ssh-deploy
+
 # 测试环境作为正式环境来用
 deploy_staging:
   <<: *deploy_doc
