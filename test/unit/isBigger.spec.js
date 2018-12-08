@@ -16,13 +16,13 @@ describe('isBigger', () => {
   });
 
   it('error: param canot be converted into a number', () => {
-    const exa1 = () => {
-      isBigger(() => { }, 3);
-    };
-    const exa2 = () => {
-      isBigger(3, undefined);
-    };
-    assert.throws(exa1, Error);
-    assert.throws(exa2, Error);
+    const exa1 = isBigger(() => { }, 3);
+    const exa2 = isBigger(3, undefined);
+    assert(exa1 === false);
+    assert(exa2 === false);
+  });
+
+  it('error: null > -1 should return false', () => {
+    assert(isBigger(null, -1) === false);
   });
 });
