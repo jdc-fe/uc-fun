@@ -6,10 +6,23 @@ describe('isBigger', () => {
     assert(exa1);
   });
 
-  it('error: param is not Number type', () => {
-    const result = () => {
-      isBigger('10', '2');
-    };
-    assert.throws(result, Error);
+  it('normal: param can be converted into a number', () => {
+    const exa1 = isBigger('  10  ', '3');
+    const exa2 = isBigger('  10  ', new Date());
+    const exa3 = isBigger(null, 10);
+    assert(exa1);
+    assert(!exa2);
+    assert(!exa3);
+  });
+
+  it('error: param canot be converted into a number', () => {
+    const exa1 = isBigger(() => { }, 3);
+    const exa2 = isBigger(3, undefined);
+    assert(exa1 === false);
+    assert(exa2 === false);
+  });
+
+  it('error: null > -1 should return false', () => {
+    assert(isBigger(null, -1) === false);
   });
 });

@@ -15,12 +15,7 @@ import isBigger from './isBigger';
  *  => ''
  */
 export default (str, len) => {
-  if (getType(str) !== 'String') {
-    throw new Error('the first param of current function must be string type');
-  }
-  if (getType(len) !== 'Number') {
-    throw new Error('the second param of current function must be number type');
-  }
+  if (getType(str) !== 'String') return '';
   if (!isBigger(stringRealLen(str), len)) return str;
   let counter = 0;
   while (counter <= len) {
