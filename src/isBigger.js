@@ -1,5 +1,5 @@
 /**
- *  比较第一个参数是否大于第二个参数 （参数建议数字类型，也可以处理能转为数字类型的参数,例如string'10',null,new Date()）
+ *  比较第一个参数是否大于第二个参数 （参数建议数字类型，也可以处理能转为数字类型的参数,例如string '10', null, new Date()）
  * @param {Number} num 需要比较的数 eg:2
  * @param {Number} standard 被对比的数 eg:10
  * @return {Boolean}
@@ -15,8 +15,13 @@
  *  => true
  */
 export default (num, standard) => {
-  if (Number.isNaN(Number(num)) || Number.isNaN(Number(standard))) {
-    throw new Error('the params of isBigger must be like number');
+  if (
+    num === null
+    || standard === null
+    || Number.isNaN(Number(num))
+    || Number.isNaN(Number(standard))
+  ) {
+    return false;
   }
   return Number(num) > Number(standard);
 };
