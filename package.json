@@ -7,7 +7,8 @@
     "doc": "esdoc",
     "test": "mocha --recursive ./test",
     "coverage": "nyc --check-coverage --functions 100 --branches 90 --lines 90 npm test",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "build": "webpack"
   },
   "pre-push": [
     "lint",
@@ -15,20 +16,20 @@
   ],
   "author": "uc-weber",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "glob": "^7.1.3"
+  },
   "repository": {
     "type": "git",
     "url": "http://git.jd.com/web-uc-weapons/uc-fun.git"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-eslint": "^10.0.1",
-    "babel-loader": "^8.0.4",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-latest": "^6.24.1",
-    "babel-preset-power-assert": "^2.0.0",
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "babel-loader": "^8.0.5",
+    "babel-preset-minify": "^0.5.0",
     "babel-preset-stage-3": "^6.24.1",
     "esdoc": "^1.1.0",
     "esdoc-standard-plugin": "^1.0.0",
@@ -40,16 +41,11 @@
     "nyc": "^13.1.0",
     "power-assert": "^1.6.1",
     "pre-push": "^0.1.1",
-    "sinon": "^5.0.1"
+    "sinon": "^5.0.1",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.2"
   },
   "keywords": [
     "functions"
-  ],
-  "babel": {
-    "presets": [
-      "stage-3",
-      "latest",
-      "power-assert"
-    ]
-  }
+  ]
 }
