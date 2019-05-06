@@ -39,35 +39,34 @@
 - `npm install -S http://storage.urban-computing.cn/npmjs/uc-fun/0.1.2.tar.gz`
 - `npm install babel-plugin-transform-imports --save-dev `
 -  .babelrc plugin参数增加配置项
-```json
-// package.json
-{
-  "babel": {
-    "plugins": [
-      ["transform-imports",
-        {
-          "uc-fun": {
-            "transform": "uc-fun/${member}",
-            "preventFullImport": true
-          }
-        }
-      ]
-    ]
-  }
-}
-```
+    ```json
+    {
+      // package.json
+      "babel": {
+        "plugins": [
+          ["transform-imports",
+            {
+              "uc-fun": {
+                "transform": "uc-fun/${member}",
+                "preventFullImport": true
+              }
+            }
+          ]
+        ]
+      }
+    }
+    ```
 - .eslintrc 配置。 当引入 uc-fun eslint报错的时候配置以下两行
-```json
-{
-  // ...
-  rules: {
-    // ...
-    "import/no-unresolved": "off",
-    "import/extensions": "off",
-  }
-}
-
-```
+    ```json
+    {
+      // ...
+      rules: {
+        // ...
+        "import/no-unresolved": "off",
+        "import/extensions": "off",
+      }
+    }
+    ```
 - `import { timeFormat } from 'uc-fun'; `
 
 ## 环境

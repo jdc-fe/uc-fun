@@ -12,6 +12,7 @@ cache:
   script:
     - npm i
     - npm run doc
+    - npm run build
   artifacts:
     name: uc-fun-doc."$CI_BUILD_REF"
     paths:
@@ -47,8 +48,8 @@ publish:
   stage: deploy
   script:
     - export PACKAGE_VERSION=$(awk '/version/{gsub(/("|",)/,"",$2);print $2};' package.json)
-    - tar -czf $PACKAGE_VERSION.tar.gz src package.json README.md
-    - scp $PACKAGE_VERSION.tar.gz $SERVER_test:$NPM_REPO
+    - tar -czf $PACKAGE_VERSION.tar.gz lib package.json README.md
+    - scp $PACKAGE_VERSION.tar.gz $SERVER:$NPM_REPO
   only:
     - master
   tags:
@@ -60,4 +61,4 @@ deploy_staging:
   only:
     - master
   variables:
-    SERVER: $SERVER_test
+    SERVER: $SERVER
