@@ -1,15 +1,21 @@
-import _ from 'lodash';
+import { isEqual } from 'lodash';
 import reverseArr from '../../src/reverseArr';
 
 describe.only('reverseArr', () => {
   it('normal', () => {
-    assert(reverseArr([]) === []);
-    assert(_.isEqual(reverseArr([1, 2, 3]), [3, 2, 1]));
+    assert(isEqual(reverseArr([]), []));
+    assert(isEqual(reverseArr([1, 2, 3]), [3, 2, 1]));
+  });
+
+  it('normal: with interator handler', () => {
+    const origin = [{ x: 1 }, { x: 2 }, { x: 3 }];
+    const reverse = reverseArr(origin, ({ x }, idx) => x * idx);
+    assert(isEqual(reverse, [6, 2, 0]));
   });
 
   it('error', () => {
-    assert(reverseArr() === []);
-    assert(reverseArr(undefined) === []);
-    assert(reverseArr(false) === []);
+    assert(isEqual(reverseArr(), []));
+    assert(isEqual(reverseArr(undefined), []));
+    assert(isEqual(reverseArr(false), []));
   });
 });
