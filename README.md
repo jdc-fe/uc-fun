@@ -67,29 +67,6 @@
       }
     }
     ```
-- webpack.config.js 需要将 uc-fun 加入 webpack 编译一次， 不然会出现 es6 在部分浏览器不兼容的现象
-    ``` javascript
-    const path = require('path');
-    function resolve(dir) {
-      return path.join(__dirname, '..', dir);
-    }
-    module.exports = {
-      // ...
-      module: {
-        rules: [
-          {
-            test: /\.js$/,
-            loader: 'babel-loader',
-            include: [
-              // ...
-              resolve('/node_modules/uc-fun')
-            ],
-          },
-          // ...
-        ]
-      }
-    }
-    ```
 - `import { timeFormat } from 'uc-fun'; `
 
 ## 环境

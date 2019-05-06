@@ -1,5 +1,4 @@
 module.exports = {
-  sourceType: 'unambiguous',
   presets: [
     [
       '@babel/env',
@@ -10,9 +9,6 @@ module.exports = {
         shippedProposals: true,
         targets: { ie: 9 }
       }
-    ],
-    ['minify', {
-      keepFnName: true
-    }]
+    ]
   ]
 };
