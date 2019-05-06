@@ -1,6 +1,6 @@
 import nonEmptyArr from '../../src/nonEmptyArr';
 
-describe.only('nonEmptyArr', () => {
+describe('nonEmptyArr', () => {
   it('normal', () => {
     assert(nonEmptyArr([1]) === true);
     assert(nonEmptyArr([]) === false);

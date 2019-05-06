@@ -1,7 +1,7 @@
 import { isEqual } from 'lodash';
 import reverseArr from '../../src/reverseArr';
 
-describe.only('reverseArr', () => {
+describe('reverseArr', () => {
   it('normal', () => {
     assert(isEqual(reverseArr([]), []));
     assert(isEqual(reverseArr([1, 2, 3]), [3, 2, 1]));
