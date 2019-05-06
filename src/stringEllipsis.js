@@ -18,6 +18,7 @@ export default (str, len) => {
   if (getType(str) !== 'String') return '';
   if (!isBigger(stringRealLen(str), len)) return str;
   let counter = 0;
+  // to be promote
   while (counter <= len) {
     counter += 1;
     const curStr = str.substr(0, counter);
