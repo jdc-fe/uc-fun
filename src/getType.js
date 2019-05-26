@@ -5,10 +5,10 @@
  *
  * @example
  *  getType({})
- *  => 'Object'
+ *  // => 'Object'
  *
  * *  getType(1)
- *  => 'Number'
+ *  // => 'Number'
  *
  */
 export default target => (
