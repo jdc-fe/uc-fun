@@ -36,7 +36,7 @@
 
 
 ## 使用
-- `npm install -S http://storage.urban-computing.cn/npmjs/uc-fun/0.1.2.tar.gz`
+- `npm install -S uc-fun`
 - `npm install babel-plugin-transform-imports --save-dev `
 -  .babelrc plugin参数增加配置项
     ```json
@@ -47,7 +47,7 @@
           ["transform-imports",
             {
               "uc-fun": {
-                "transform": "uc-fun/${member}",
+                "transform": "uc-fun/src/${member}",
                 "preventFullImport": true
               }
             }

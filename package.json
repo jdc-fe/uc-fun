@@ -1,6 +1,6 @@
 {
   "name": "uc-fun",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "",
   "scripts": {
     "start": "DIR=example node src/index.js",
