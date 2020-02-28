@@ -6,14 +6,14 @@
  * /^\d{6}(18|19|20)\d{2}(0\d|10|11|12)([0-2]\d|30|31)\d{3}[\dXx]$/ 18位身份证号
  *
  * @example https://any86.github.io/any-rule/ 常用正则大全
- *  isIdentityCard('61012419970228377x')
+ *  isIdentityCard('622001790122123')
  *  => true
  *
  *  isIdentityCard(610124199810283999)
  *  => true
  *
- *  isIdentityCard(610124202002303777)
- *   => false
+ *  isIdentityCard('34052419800101001X')
+ *   => true
  */
 
 export default number => {
