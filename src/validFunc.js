@@ -1,4 +1,4 @@
-import { getType } from './getType';
+import getType from './getType';
 
 /**
  *  call function is function is valide

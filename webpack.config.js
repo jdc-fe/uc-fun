@@ -15,7 +15,9 @@ module.exports = {
   entry: toObject(glob.sync('./src/*.js')),
   output: {
     path: path.resolve(__dirname, 'lib'),
-    filename: '[name]'
+    filename: '[name]',
+    library: 'uc-fun',
+    libraryTarget: 'umd'
   },
   module: {
     rules: [

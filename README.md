@@ -75,3 +75,7 @@
 
 ### 运行环境
 - 所有支持es5的主流浏览器下
+
+## FEATURE_LIST
+- 0.5.0
+  - 添加 linearScale 线型比例尺； eg: linearScale([0, 100], [0, 10])(10) = 1
