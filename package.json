@@ -1,6 +1,6 @@
 {
   "name": "uc-fun",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "",
   "scripts": {
     "start": "DIR=example node src/index.js",
@@ -8,7 +8,8 @@
     "test": "mocha --recursive ./test",
     "coverage": "nyc --check-coverage --functions 100 --branches 90 --lines 90 npm test",
     "lint": "eslint .",
-    "build": "webpack"
+    "build": "webpack",
+    "deploy": "npm run build && npm publish"
   },
   "pre-push": [
     "lint",
