@@ -1,6 +1,6 @@
 /**
  * detects whether an array is an empty array
- * @param {array} arr
+ * @param {any[]} arr
  * @return {boolean}
  *
  * @example
