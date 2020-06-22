@@ -5,7 +5,7 @@
 
 ## 开发
 ### clone项目
-- `git clone https://github.com/jdc-fe/uc-fun`
+- `git clone git@git.jd.com:web-uc-weapons/uc-fun.git`
 - `cd uc-fun`
 - `npm install`
 
