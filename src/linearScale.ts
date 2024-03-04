@@ -11,7 +11,7 @@
  *  scale(10) // => 100
  *  scale(100) // => 100
  */
-export default function linearScale(from, to) {
+export default function linearScale(from: number[], to: number[]): (num: number) => number {
   const [min, max] = from;
   const times = (to[1] - to[0]) / (max - min);
   return (num) => {

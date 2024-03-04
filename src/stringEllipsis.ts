@@ -14,7 +14,7 @@ import isBigger from './isBigger';
  *  stringEllipsis(()=>{},3)
  *  => ''
  */
-export default (str, len) => {
+export default (str: string, len: number) => {
   if (getType(str) !== 'String') return '';
   if (!isBigger(stringRealLen(str), len)) return str;
   let counter = 0;

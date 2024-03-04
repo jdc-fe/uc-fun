@@ -2,7 +2,7 @@
  * 将一维数组前后元素转换成二维数组, [1,2,3] => [[1,2], [2,3]]
  * @param {Number[]} range
  */
-export default (range = []) => {
+export default (range: number[] = []) => {
   // 边界处理
   if (!range) return [];
   if (!Array.isArray(range)) return [];

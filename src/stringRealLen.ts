@@ -14,7 +14,7 @@ import getType from './getType';
  *  stringRealLen(() => {})
  *  => 0
  */
-export default (str) => {
+export default (str: string) => {
   if (getType(str) !== 'String') return 0;
   return str.replace(/[\u4e00-\u9fa5]/g, 'ss').length;
 };

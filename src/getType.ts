@@ -11,6 +11,6 @@
  *  // => 'Number'
  *
  */
-export default target => (
+export default (target: any) => (
   Object.prototype.toString.call(target).slice(8, -1)
 );

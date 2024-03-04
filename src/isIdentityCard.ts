@@ -16,7 +16,7 @@
  *   => true
  */
 
-export default number => {
+export default (number: string) => {
   const strNumber = String(number);
   const regex = /\d{8}(0\d|10|11|12)([0-2]\d|30|31)\d{3}$|^\d{6}(18|19|20)\d{2}(0\d|10|11|12)([0-2]\d|30|31)\d{3}[\dXx]$/;
   const monthStartPos = strNumber.length === 15 ? 8 : 10;
@@ -31,7 +31,7 @@ export default number => {
   // 针对长度为18位身份证号，验证身份证校验码（第18位为校验码）
   if (regex.test(strNumber) && strNumber.length === 18) {
     const coefficient = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2];
-    const remainderMatch = {
+    const remainderMatch: { [key: number]: string} = {
       0: '1',
       1: '0',
       2: 'X',
@@ -46,9 +46,11 @@ export default number => {
     };
     let remainder = 0;
     coefficient.forEach((item, index) => {
-      remainder += item * strNumber[index];
+      const num: number = Number(strNumber[index]);
+      remainder += item * num;
     });
-    return remainderMatch[remainder % 11] === strNumber[17].toUpperCase();
+    const remainderStr: string = remainderMatch[remainder % 11];
+    return remainderStr === strNumber[17].toUpperCase();
   }
 
   return regex.test(strNumber);

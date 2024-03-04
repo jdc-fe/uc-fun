@@ -8,7 +8,7 @@
  * => Promise {<pending>}
  *
  */
-export default (duration) => new Promise((resolve) => {
+export default (duration: number) => new Promise<void>((resolve) => {
   setTimeout(() => {
     resolve();
   }, duration);

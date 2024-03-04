@@ -15,7 +15,7 @@
 import getType from './getType';
 import nonEmptyArr from './nonEmptyArr';
 
-export default (arr, handler) => {
+export default <T>(arr: T[], handler: (item: T, idx: number) => any) => {
   if (!nonEmptyArr(arr)) return [];
   const len = arr.length - 1;
   const result = [];

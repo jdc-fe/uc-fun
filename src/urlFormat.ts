@@ -1,6 +1,5 @@
 import getType from './getType';
 
-const querystring = require('querystring');
 /**
  * @param {String} url [url string with '?']
  *  eg 'https://www.jd.com?paramKey=paramValue' | '?paramKey=paramValue'
@@ -16,7 +15,7 @@ const querystring = require('querystring');
  *  urlFormat({})
  *  => Uncaught Error: the param of urlFormat must be string
  */
-export default (url) => {
+export default (url: String) => {
   if (!url) return {};
   if (getType(url) !== 'String') {
     throw new Error('the param of urlFormat must be string');
@@ -24,6 +23,6 @@ export default (url) => {
   const pos = url.indexOf('?');
   if (pos === -1) return {};
   const urlSearch = url.substr(pos + 1);
-  const urlObj = querystring.parse(urlSearch);
+  const urlObj = new URLSearchParams(urlSearch);
   return urlObj;
 };

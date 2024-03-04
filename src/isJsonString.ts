@@ -4,7 +4,7 @@
  * @return {boolean}
  */
 
-export default str => {
+export default (str: string) => {
   try {
     JSON.parse(str);
   } catch (e) {

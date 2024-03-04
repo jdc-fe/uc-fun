@@ -17,7 +17,7 @@
  *  // => 10/10 10:30
  *
  */
-export default (rowDate, fmt) => {
+export default (rowDate: Date | string | number, fmt: string): string => {
   if (!rowDate || !fmt) return fmt;
   // get correct date
   const date = new Date(rowDate);

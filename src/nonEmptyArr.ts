@@ -16,6 +16,6 @@
 
 import getType from './getType';
 
-export default (arr) => (
+export default (arr: any[]) => (
   getType(arr) === 'Array' && arr.length > 0
 );
