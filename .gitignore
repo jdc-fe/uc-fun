@@ -3,3 +3,4 @@ docs-dist
 dist
 lib
 .vscode
+.nyc_output

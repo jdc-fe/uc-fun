@@ -1,6 +1,6 @@
 {
   "name": "uc-fun",
-  "version": "0.4.4",
+  "version": "1.0.0",
   "description": "",
   "main": "dist",
   "directories": {
@@ -9,9 +9,10 @@
   },
   "scripts": {
     "start": "typedoc src --watch --preserveWatchOutput",
-    "docs": "typedoc src/*.ts",
+    "docs": "rm -rf docs-dist/* && typedoc",
     "docs:deploy": "gh-pages -d docs-dist",
     "test": "mocha --file test/*.spec.ts",
+    "coverage": "nyc --check-coverage --functions 100 --branches 90 --lines 90 npm test",
     "build": "tsc --project tsconfig.production.json"
   },
   "mocha": {
@@ -23,7 +24,7 @@
     "type": "git",
     "url": "git@gitee.com:kakaka_1/leetcode.git"
   },
-  "author": "",
+  "author": "lin-123",
   "license": "ISC",
   "devDependencies": {
     "@types/mocha": "^10.0.0",
@@ -32,6 +33,7 @@
     "@types/sinon": "^17.0.3",
     "espower-typescript": "^10.0.1",
     "mocha": "^10.1.0",
+    "nyc": "^15.1.0",
     "power-assert": "^1.6.1",
     "sinon": "^17.0.1",
     "ts-node": "^10.9.2",
