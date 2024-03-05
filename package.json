@@ -16,8 +16,7 @@
       "espower-typescript/guess"
     ]
   },
-  "pre-push": [
-  ],
+  "pre-push": [],
   "repository": {
     "type": "git",
     "url": ""
@@ -30,6 +29,7 @@
     "@types/power-assert": "^1.5.8",
     "@types/sinon": "^17.0.3",
     "espower-typescript": "^10.0.1",
+    "gh-pages": "^6.1.1",
     "mocha": "^10.1.0",
     "nyc": "^15.1.0",
     "power-assert": "^1.6.1",
