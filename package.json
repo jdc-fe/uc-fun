@@ -2,11 +2,7 @@
   "name": "uc-fun",
   "version": "1.0.0",
   "description": "",
-  "main": "dist",
-  "directories": {
-    "doc": "docs",
-    "test": "src"
-  },
+  "main": "lib/index.js",
   "scripts": {
     "start": "typedoc src --watch --preserveWatchOutput",
     "docs": "rm -rf docs-dist/* && typedoc",
@@ -20,9 +16,11 @@
       "espower-typescript/guess"
     ]
   },
+  "pre-push": [
+  ],
   "repository": {
     "type": "git",
-    "url": "git@gitee.com:kakaka_1/leetcode.git"
+    "url": ""
   },
   "author": "lin-123",
   "license": "ISC",

@@ -2,7 +2,6 @@
 example
 node_modules
 test
-Makefile
-babel.config.js
-TODO.md
-webpack.config.js
+src
+docs-dist
+typedoc.json
