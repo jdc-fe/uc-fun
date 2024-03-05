@@ -1,10 +1,6 @@
-.DS_Store
-*.rdb
-*.log
-*.gz
-.idea
-.nyc_output
 node_modules
-docs
-demo
+docs-dist
+dist
 lib
+.vscode
+.nyc_output

@@ -1,55 +1,44 @@
 {
   "name": "uc-fun",
-  "version": "0.4.3",
+  "version": "1.0.0",
   "description": "",
-  "scripts": {
-    "start": "DIR=example node src/index.js",
-    "doc": "esdoc",
-    "test": "mocha --recursive ./test",
-    "coverage": "nyc --check-coverage --functions 100 --branches 90 --lines 90 npm test",
-    "lint": "eslint .",
-    "build": "webpack",
-    "deploy": "npm run build && npm publish"
+  "main": "dist",
+  "directories": {
+    "doc": "docs",
+    "test": "src"
   },
-  "pre-push": [
-    "lint",
-    "coverage"
-  ],
-  "author": "uc-weber",
-  "license": "ISC",
-  "dependencies": {},
+  "scripts": {
+    "start": "typedoc src --watch --preserveWatchOutput",
+    "docs": "rm -rf docs-dist/* && typedoc",
+    "docs:deploy": "gh-pages -d docs-dist",
+    "test": "mocha --file test/*.spec.ts",
+    "coverage": "nyc --check-coverage --functions 100 --branches 90 --lines 90 npm test",
+    "build": "tsc --project tsconfig.production.json"
+  },
+  "mocha": {
+    "require": [
+      "espower-typescript/guess"
+    ]
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jdc-fe/uc-fun"
+    "url": "git@gitee.com:kakaka_1/leetcode.git"
   },
+  "author": "lin-123",
+  "license": "ISC",
   "devDependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.4",
-    "@babel/polyfill": "^7.4.4",
-    "@babel/preset-env": "^7.4.4",
-    "@babel/register": "^7.4.4",
-    "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.0.5",
-    "babel-preset-minify": "^0.5.0",
-    "babel-preset-power-assert": "^3.0.0",
-    "diff": ">=3.5.0",
-    "esdoc": "^1.1.0",
-    "esdoc-standard-plugin": "^1.0.0",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "glob": "^7.1.3",
-    "intelli-espower-loader": "^1.0.1",
-    "lodash": "^4.17.15",
-    "mocha": "^4.0.1",
-    "nyc": "^14.1.1",
+    "@types/mocha": "^10.0.0",
+    "@types/node": "^18.11.9",
+    "@types/power-assert": "^1.5.8",
+    "@types/sinon": "^17.0.3",
+    "espower-typescript": "^10.0.1",
+    "mocha": "^10.1.0",
+    "nyc": "^15.1.0",
     "power-assert": "^1.6.1",
-    "pre-push": "^0.1.1",
-    "sinon": "^5.0.1",
-    "webpack": "^4.30.0",
-    "webpack-cli": "^3.3.12"
-  },
-  "keywords": [
-    "functions"
-  ]
+    "sinon": "^17.0.1",
+    "ts-node": "^10.9.2",
+    "typedoc": "^0.25.10",
+    "typedoc-material-theme": "^1.0.2",
+    "typescript": "^4.9.5"
+  }
 }

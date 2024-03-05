@@ -1,0 +1,16 @@
+export { default as getType } from './getType';
+export { default as isBigger } from './isBigger';
+export { default as isJsonString } from './isJsonString';
+export { default as jsonParse } from './jsonParse';
+export { default as nonEmptyArr } from './nonEmptyArr';
+export { default as reverseArr } from './reverseArr';
+export { default as stringEllipsis } from './stringEllipsis';
+export { default as timeFormat } from './timeFormat';
+export { default as validFunc } from './validFunc';
+export { default as isIdentityCard } from './isIdentityCard';
+export { default as isPhoneNumber } from './isPhoneNumber';
+export { default as linearScale } from './linearScale';
+export { default as range2Arr } from './range2Arr';
+export { default as sleep } from './sleep';
+export { default as stringRealLen } from './stringRealLen';
+export { default as urlFormat } from './urlFormat';
