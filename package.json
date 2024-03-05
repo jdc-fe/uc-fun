@@ -8,9 +8,10 @@
     "test": "src"
   },
   "scripts": {
-    "docs": "typedoc src/**",
+    "start": "typedoc src --watch --preserveWatchOutput",
+    "docs": "typedoc src/*.ts",
     "docs:deploy": "gh-pages -d docs-dist",
-    "test": "mocha test/**.test.ts",
+    "test": "mocha test/**.spec.ts test/**/**.spec.ts",
     "build": "tsc --project tsconfig.production.json"
   },
   "mocha": {
@@ -32,7 +33,9 @@
     "mocha": "^10.1.0",
     "power-assert": "^1.6.1",
     "typedoc": "^0.25.10",
-    "typedoc-material-theme": "^1.0.2"
+    "typedoc-material-theme": "^1.0.2",
+    "typedoc-plugin-markdown": "^3.17.1",
+    "typedoc-theme-hierarchy": "^4.1.2"
   },
   "dependencies": {
     "ts-node": "^10.9.1",
