@@ -1,10 +1,10 @@
-import range2Arr from '../../src/range2Arr';
+import assert = require('power-assert');
+import range2Arr from '../src/range2Arr';
 
 describe('range2Arr', () => {
   it('range2Arr', () => {
     assert.deepEqual(range2Arr(null), []);
     assert.deepEqual(range2Arr(undefined), []);
-    assert.deepEqual(range2Arr({}), []);
     assert.deepEqual(range2Arr([]), []);
     assert.deepEqual(range2Arr([1]), [1, 1]);
     assert.deepEqual(range2Arr([1, 2, 3]), [

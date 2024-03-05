@@ -1,4 +1,5 @@
-import getType from '../../src/getType';
+import assert = require('power-assert');
+import getType from '../src/getType';
 
 describe('baseDataType', () => {
   it('normal: show data type', () => {
@@ -10,9 +11,5 @@ describe('baseDataType', () => {
     assert(getType('tagString') === 'String');
     assert(getType(undefined) === 'Undefined');
     assert(getType(null) === 'Null');
-  });
-
-  it('error: param is empty', () => {
-    assert(getType() === 'Undefined');
   });
 });

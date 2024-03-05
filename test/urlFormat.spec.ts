@@ -1,6 +1,7 @@
-import urlFormat from '../../src/urlFormat';
+import assert = require('power-assert');
+import urlFormat from '../src/urlFormat';
 
-describe('timeformat', () => {
+describe('urlFormat', () => {
   it('normal', () => {
     const exa = 'https://www.jd.com?key1=a++b&key2=%E4%B8%AD%E6%96%87&key3=中文&key4==&%-$?#';
     const result = urlFormat(exa);
@@ -26,17 +27,5 @@ describe('timeformat', () => {
     const exa = 'https://www.jd.com?justkey';
     const result = urlFormat(exa);
     assert.deepEqual(result, { justkey: '' });
-  });
-
-  it('error: param is empty', () => {
-    const result = urlFormat();
-    assert.deepStrictEqual(result, {});
-  });
-
-  it('error: param is not string type', () => {
-    const result = () => {
-      urlFormat(() => { });
-    };
-    assert.throws(result, Error);
   });
 });

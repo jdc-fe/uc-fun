@@ -15,14 +15,20 @@ import getType from './getType';
  *  urlFormat({})
  *  => Uncaught Error: the param of urlFormat must be string
  */
-export default (url: String) => {
-  if (!url) return {};
+export type URLFormatResult = {
+  [key: string]: string
+}
+export default function urlFormat(url: string): URLFormatResult {
   if (getType(url) !== 'String') {
     throw new Error('the param of urlFormat must be string');
   }
   const pos = url.indexOf('?');
   if (pos === -1) return {};
-  const urlSearch = url.substr(pos + 1);
-  const urlObj = new URLSearchParams(urlSearch);
-  return urlObj;
+  const urlSearch = url.substring(pos + 1);
+  const qs = new URLSearchParams(urlSearch);
+  const obj: URLFormatResult = {};
+  for (const [key, value] of qs.entries()) {
+    obj[key] = value;
+  }
+  return obj;
 };

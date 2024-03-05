@@ -1,4 +1,5 @@
-import timeformat from '../../src/timeFormat';
+import assert = require('power-assert');
+import timeformat from '../src/timeFormat';
 
 describe('timeformat', () => {
   const fmt = 'MM/DD/YYYY HH:mm:ss';

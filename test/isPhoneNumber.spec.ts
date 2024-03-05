@@ -1,4 +1,5 @@
-import isPhoneNumber from '../../src/isPhoneNumber';
+import assert = require('power-assert');
+import isPhoneNumber from '../src/isPhoneNumber';
 
 describe('isPhoneNumber', () => {
   it('normal', () => {

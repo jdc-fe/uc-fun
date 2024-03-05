@@ -1,14 +1,15 @@
-import isIdentityCard from '../../src/isIdentityCard';
+import assert = require('power-assert');
+import isIdentityCard from '../src/isIdentityCard';
 
 describe('isIdentityCard', () => {
   it('normal', () => {
-    const number = [
+    const number: (string|number)[] = [
       '622001790122123',
       610124199810283999,
       '34052419800101001X',
       '34052419800101001x'
     ];
-    const result = number.every(item => isIdentityCard(item));
+    const result = number.every((item: string|number) => isIdentityCard(item));
     assert(result === true);
   });
 

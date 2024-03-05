@@ -1,4 +1,5 @@
-import jsonParse from '../../src/jsonParse';
+import assert = require('power-assert');
+import jsonParse from '../src/jsonParse';
 
 describe('jsonParse', () => {
   it('normal', () => {

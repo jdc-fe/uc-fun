@@ -1,4 +1,5 @@
-import isJsonString from '../../src/isJsonString';
+import assert = require('power-assert');
+import isJsonString from '../src/isJsonString';
 
 describe('isJsonString', () => {
   it('normal: input json string should return true', () => {

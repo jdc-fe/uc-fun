@@ -14,7 +14,7 @@
  *  isBigger('12','2')
  *  => true
  */
-export default (num: number|string, standard: any) => {
+export default (num: any, standard: any) => {
   if (
     num === null
     || standard === null

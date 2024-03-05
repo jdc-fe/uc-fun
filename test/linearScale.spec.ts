@@ -1,4 +1,5 @@
-import linearScale from '../../src/linearScale';
+import assert = require('power-assert');
+import linearScale from '../src/linearScale';
 
 describe('linerScale', () => {
   const to = [0, 100];

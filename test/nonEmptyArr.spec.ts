@@ -1,4 +1,5 @@
-import nonEmptyArr from '../../src/nonEmptyArr';
+import assert = require('power-assert');
+import nonEmptyArr from '../src/nonEmptyArr';
 
 describe('nonEmptyArr', () => {
   it('normal', () => {

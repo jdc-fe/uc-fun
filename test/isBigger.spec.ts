@@ -1,4 +1,5 @@
-import isBigger from '../../src/isBigger';
+import assert = require('power-assert');
+import isBigger from '../src/isBigger';
 
 describe('isBigger', () => {
   it('normal', () => {
