@@ -1,8 +1,18 @@
 {
   "compilerOptions": {
+    "rootDir": "./src",
     "sourceMap": false,
-    "outDir": "lib"
+    // Generate d.ts files
+    "declaration": true,
+    // This compiler run should
+    // only output d.ts files
+    // "emitDeclarationOnly": true,
+    // "declarationDir": "./lib/types",
+    // go to js file when using IDE functions like
+    // "Go to Definition" in VSCode
+    // "declarationMap": true,
+    "outDir": "./lib"
   },
   "extends": "./tsconfig.json",
-  "include": ["src/*.ts"],
+  "include": ["src"],
 }

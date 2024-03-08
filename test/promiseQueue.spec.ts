@@ -2,7 +2,7 @@ import assert = require('power-assert');
 import promiseQueue from '../src/promiseQueue';
 import { sleep } from '../src';
 
-describe.only('promiseQueue', () => {
+describe('promiseQueue', () => {
   it('normal', async () => {
     console.log('start', new Date().toISOString());
     await promiseQueue([1,2,3].map((i) => {
