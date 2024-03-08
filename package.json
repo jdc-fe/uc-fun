@@ -1,6 +1,6 @@
 {
   "name": "uc-fun",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -25,17 +25,20 @@
   "author": "lin-123",
   "license": "ISC",
   "devDependencies": {
+    "@types/jsdom": "^21.1.6",
     "@types/mocha": "^10.0.0",
     "@types/node": "^18.11.9",
     "@types/power-assert": "^1.5.8",
     "@types/sinon": "^17.0.3",
     "espower-typescript": "^10.0.1",
     "gh-pages": "^6.1.1",
+    "jsdom": "^24.0.0",
     "mocha": "^10.1.0",
     "nyc": "^15.1.0",
     "power-assert": "^1.6.1",
     "sinon": "^17.0.1",
     "ts-node": "^10.9.2",
+    "tsdom": "^0.6.9",
     "typedoc": "^0.25.10",
     "typedoc-material-theme": "^1.0.2",
     "typescript": "^4.9.5"
