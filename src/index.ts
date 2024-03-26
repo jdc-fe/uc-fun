@@ -14,3 +14,4 @@ export { default as range2Arr } from './range2Arr';
 export { default as sleep } from './sleep';
 export { default as stringRealLen } from './stringRealLen';
 export { default as urlFormat } from './urlFormat';
+export { default as getDomScale, DomScale } from './getDomScale';

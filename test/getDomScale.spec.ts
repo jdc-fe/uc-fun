@@ -3,7 +3,7 @@ import { JSDOM } from 'jsdom';
 import getDomScale from '../src/getDomScale';
 import sinon = require('sinon');
 
-describe('getDomScale', () => {
+describe.only('getDomScale', () => {
   it('normal', () => {
     /**
      * jsdom 无法真正渲染 dom 节点， 导致 getBoundingClientRect 返回数据都是 0
