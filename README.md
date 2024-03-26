@@ -14,7 +14,7 @@
           ["transform-imports",
             {
               "uc-fun": {
-                "transform": "uc-fun/src/${member}",
+                "transform": "uc-fun/lib/${member}",
                 "preventFullImport": true
               }
             }
@@ -41,7 +41,6 @@
 ### Scripts
 - pnpm install
 - npm run docs 生成文档
-- npm run docs:deploy gh-pages 发布
 - npm test 测试
 - npm run build 构建
 - npm publish 发布

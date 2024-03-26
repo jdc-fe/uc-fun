@@ -5,6 +5,7 @@
 ## 1.0.2
 - [x] 添加 getDomScale 获取当前 dom 的真实 scale， 返回 { x: scaleX, y: scaleY }
 - [x] sinon.useFakeTimers 改写 promiseQueue 单测
+- [x] gh-page 通过 GitHub action 自动发布
 
 ## 1.0.0
 - [x] 用 ts 重写
