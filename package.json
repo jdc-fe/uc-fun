@@ -10,7 +10,7 @@
     "test": "mocha --file test/*.spec.ts",
     "coverage": "nyc --check-coverage --functions 100 --branches 90 --lines 90 npm test",
     "build": "rm -rf lib/* && tsc --project tsconfig.production.json",
-    "publish": "npm publish --registry https://registry.npmjs.org"
+    "release": "npm run build && npm publish --registry https://registry.npmjs.org"
   },
   "mocha": {
     "require": [
