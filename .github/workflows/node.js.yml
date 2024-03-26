@@ -50,7 +50,7 @@ jobs:
   # Deploy job
   deploy-pages:
     # Add a dependency to the build job
-    needs: build
+    needs: cache-and-install
 
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
