@@ -5,9 +5,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "ci" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "ci" ]
+    branches: [ "master" ]
 
 jobs:
   cache-and-install:
@@ -43,6 +43,9 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+
+      - name: Build docs
+        run: pnpm run docs
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
