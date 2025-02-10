@@ -1,11 +1,11 @@
 {
   "name": "uc-fun",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "start": "typedoc src --watch --preserveWatchOutput",
+    "start": "ts-node scripts/start.ts",
     "docs": "rm -rf docs-dist/* && typedoc",
     "test": "mocha --file test/*.spec.ts",
     "coverage": "nyc --check-coverage --functions 100 --branches 90 --lines 90 npm test",

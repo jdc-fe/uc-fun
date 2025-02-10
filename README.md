@@ -40,8 +40,9 @@
 
 ### Scripts
 - pnpm install
-- npm run docs 生成文档
+- npm start 本地开发启动
 - npm test 测试
+- npm run docs 生成文档
 - npm run build 构建
 - npm publish 发布
 

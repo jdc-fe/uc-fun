@@ -1,3 +1,5 @@
+import { percent, toFixed, isNumber, randomNum, fmtNumber } from './number';
+export { default as randomStr } from './randomStr';
 export { default as getType } from './getType';
 export { default as isBigger } from './isBigger';
 export { default as isJsonString } from './isJsonString';
@@ -15,3 +17,4 @@ export { default as sleep } from './sleep';
 export { default as stringRealLen } from './stringRealLen';
 export { default as urlFormat } from './urlFormat';
 export { default as getDomScale, DomScale } from './getDomScale';
+export { percent, toFixed, isNumber, randomNum, fmtNumber }
