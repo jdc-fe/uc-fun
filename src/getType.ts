@@ -7,7 +7,7 @@
  *  getType({})
  *  // => 'Object'
  *
- * *  getType(1)
+ *  getType(1)
  *  // => 'Number'
  *
  */
