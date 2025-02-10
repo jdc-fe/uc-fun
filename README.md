@@ -44,7 +44,7 @@
 - npm test 测试
 - npm run docs 生成文档
 - npm run build 构建
-- npm publish 发布
+- npm release 发布
 
 ### Quick Start
 - src 写函数逻辑
