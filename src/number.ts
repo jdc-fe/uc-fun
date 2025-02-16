@@ -25,7 +25,10 @@ export const percent = (a: number, b: number) => {
  * isNumber(0) = true;
  * isNumber(Infinity) = true;
  */
-export const isNumber = (x: any): boolean => (x === 0) || (x !== '' && !!Number(x));
+export const isNumber = (x: any): boolean => {
+  if (x === 0 || x === '0') return true;
+  return !!Number(x);
+};
 
 /**
  * 计算小数点位数

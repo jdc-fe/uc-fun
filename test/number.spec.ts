@@ -8,12 +8,13 @@ describe('number', () => {
     assert(percent(1, 3) === '33.33%');
   });
 
-  it('isNumber', () => {
+  it.only('isNumber', () => {
     assert(isNumber('') === false);
     assert(isNumber(null) === false);
     assert(isNumber(undefined) === false);
     assert(isNumber(0) === true);
     assert(isNumber(Infinity) === true);
+    assert(isNumber('0') === true);
   });
 
   it('toFixed', () => {

@@ -2,6 +2,8 @@
 - [ ] 修改 typedoc-theme 将测试用例作为函数使用示例
   - 参考项目 typedoc-custom-theme-demo
 
+## 1.1.1
+- fix isNumber 判断漏洞
 ## 1.1.0
 - 添加 start.ts 作为启动脚本
 - 添加 number.ts 数据处理函数， 包括 percent|isNumber|toFixed|randomNum|fmtNumber
