@@ -23,8 +23,9 @@ describe('number', () => {
     assert(toFixed(1.2, 0) === 1);
   });
 
-  it('fmtNumber', () => {
-    assert(fmtNumber(10000) === '1万')
-    assert(fmtNumber(15000) === '1.5万')
+  it.only('fmtNumber', () => {
+    assert.deepEqual(fmtNumber(10000), { value: 1, symbol: '万' })
+    assert.deepEqual(fmtNumber(15000), { value: 1.5, symbol: '万' })
+    assert.deepEqual(fmtNumber(1500), { value: 1.5, symbol: '千' })
   })
 });

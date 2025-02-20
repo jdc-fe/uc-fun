@@ -8,6 +8,7 @@ export {
   convert3857ToWGS84, appendCentroid, calculateCentroid,
   genList
 }
+
 export { default as randomStr } from './randomStr';
 export { default as getType } from './getType';
 export { default as isBigger } from './isBigger';

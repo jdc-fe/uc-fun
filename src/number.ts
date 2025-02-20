@@ -57,16 +57,35 @@ export const toFixed = (num: number, decimal = 2) => {
  * */
 export const randomNum = (times = 1, decimal = 0) => toFixed(Math.random() * times, decimal);
 
+interface Unit {
+  value: number
+  symbol: string
+}
 
-/***
- * 科学技术， xx 万
+const DEFAULT_UNITS: Unit[] = [
+  { value: 1e12, symbol: '万亿' },
+  { value: 1e8, symbol: '亿' },
+  { value: 1e4, symbol: '万' },
+  { value: 1e3, symbol: '千' },
+];
+
+/**
+ * 格式化数字，将大数字转换为指定单位的表示形式
+ * @param {number} value 需要格式化的数字
+ * @param {Unit[]} units [{ value, symbol }] 转化单位，默认 千, 万, 亿, 万亿
+ *
+ * @returns {Unit} 格式化后的字符串或原始数字
+ *
  * @example
- * fmtNumber(10000) = '1万'
- * fmtNumber(15000) = '1.5万'
-*/
-export function fmtNumber(num: number) {
-  if (num >= 10000) return `${toFixed(num / 10000, 2)}万`;
-  if (num >= 1000) return `${Math.round(num / 100) / 10}千`;
-  return num;
-  // if (num > 10000) return `${Math.round(num / 10000)}万`;
+ *  fmtNumber(15000)
+ *  { value: 1.5, symbol: '万' }
+ */
+export function fmtNumber(value: number, units: Unit[] = DEFAULT_UNITS): Unit {
+  for (const item of units) {
+      if (value >= item.value) {
+          return { value: toFixed(value / item.value, 1), symbol: item.symbol };
+      }
+  }
+
+  return { value, symbol: '' };
 }
