@@ -1,4 +1,13 @@
 import { percent, toFixed, isNumber, randomNum, fmtNumber } from './number';
+import groupArray from './groupArray';
+import { convert3857ToWGS84, appendCentroid, calculateCentroid } from './geo';
+import genList from './genList';
+
+export {
+  percent, toFixed, isNumber, randomNum, fmtNumber, groupArray,
+  convert3857ToWGS84, appendCentroid, calculateCentroid,
+  genList
+}
 export { default as randomStr } from './randomStr';
 export { default as getType } from './getType';
 export { default as isBigger } from './isBigger';
@@ -17,4 +26,3 @@ export { default as sleep } from './sleep';
 export { default as stringRealLen } from './stringRealLen';
 export { default as urlFormat } from './urlFormat';
 export { default as getDomScale, DomScale } from './getDomScale';
-export { percent, toFixed, isNumber, randomNum, fmtNumber }

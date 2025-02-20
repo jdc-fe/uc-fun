@@ -8,7 +8,7 @@ describe('number', () => {
     assert(percent(1, 3) === '33.33%');
   });
 
-  it.only('isNumber', () => {
+  it('isNumber', () => {
     assert(isNumber('') === false);
     assert(isNumber(null) === false);
     assert(isNumber(undefined) === false);
