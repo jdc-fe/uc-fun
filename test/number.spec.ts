@@ -17,6 +17,10 @@ describe('number', () => {
     assert(isNumber('0') === true);
   });
 
+  it('isNumber error 超出范围', () => {
+    assert(isNumber('31010721001321065006') === false);
+  })
+
   it('toFixed', () => {
     assert(toFixed(1.999, 2) === 2);
     assert(toFixed(1.992, 2) === 1.99);

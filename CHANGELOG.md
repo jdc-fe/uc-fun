@@ -2,6 +2,10 @@
 - [ ] 修改 typedoc-theme 将测试用例作为函数使用示例
   - 参考项目 typedoc-custom-theme-demo
 
+## 1.2.1
+- isNumber 增加数字边界判断
+
+
 ## 1.2.0
 - 增加 groupArray, convert3857ToWGS84, appendCentroid, calculateCentroid, genList, fmtNumber
 

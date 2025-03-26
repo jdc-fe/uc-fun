@@ -27,6 +27,7 @@ export const percent = (a: number, b: number) => {
  */
 export const isNumber = (x: any): boolean => {
   if (x === 0 || x === '0') return true;
+  if (isFinite(x)) return false;
   return !!Number(x);
 };
 
