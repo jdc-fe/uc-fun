@@ -36,26 +36,39 @@ export function appendCentroid(geojson: GeoJSON.FeatureCollection): GeoJSON.Feat
 * @param {GeoJSON.Polygon} polygon 多边形几何对象
 * @returns {[number, number] | null} 中心点的 [x, y] 坐标数组，如果计算失败则返回 null
 */
-export function calculateCentroid(polygon: GeoJSON.Polygon): [number, number] | null {
-  let x: number = 0.0, y: number = 0.0, A: number = 0.0;
-  // 假设 polygon.coordinates 是一个二维数组，表示多边形的坐标
-  const coordinates: number[][] = polygon.coordinates[0];
+export function calculateCentroid(geometry: GeoJSON.Polygon | GeoJSON.MultiPolygon): [number, number] | null {
+  let x = 0.0, y = 0.0, A = 0.0;
 
-  for (let i: number = 0; i < coordinates.length; i++) {
-      const j: number = (i + 1) % coordinates.length;
-      const xi: number = coordinates[i][0];
-      const yi: number = coordinates[i][1];
-      const xj: number = coordinates[j][0];
-      const yj: number = coordinates[j][1];
-      const a: number = ((xi * yj) - (xj * yi)) / 2.0;
+  const processPolygon = (coordinates: number[][][]) => {
+    const ring = coordinates[0]; // 主环
+    if (!ring || ring.length === 0) {
+      return;
+    }
+
+    for (let i = 0; i < ring.length; i++) {
+      const j = (i + 1) % ring.length;
+      const xi = ring[i][0];
+      const yi = ring[i][1];
+      const xj = ring[j][0];
+      const yj = ring[j][1];
+      const a = ((xi * yj) - (xj * yi)) / 2.0;
       A += a;
       x += (xi + xj) * a;
       y += (yi + yj) * a;
+    }
+  };
+
+  if (geometry.type === 'Polygon') {
+    processPolygon(geometry.coordinates);
+  } else if (geometry.type === 'MultiPolygon') {
+    for (const polygon of geometry.coordinates) {
+      processPolygon(polygon);
+    }
   }
 
   // 防止除以零
   if (A === 0.0) {
-      return null;
+    return null;
   }
   return [x / (3.0 * A), y / (3.0 * A)];
 }

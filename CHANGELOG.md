@@ -2,6 +2,9 @@
 - [ ] 修改 typedoc-theme 将测试用例作为函数使用示例
   - 参考项目 typedoc-custom-theme-demo
 
+## 1.2.3
+- geo.calculateCentroid 兼容 MultiPolygon
+
 ## 1.2.2
 - isNumber 增加数字边界判断
 

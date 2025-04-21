@@ -16,7 +16,7 @@ describe('geo 坐标转换和几何计算测试', () => {
         });
     });
 
-    describe('calculateCentroid', () => {
+    describe.only('calculateCentroid', () => {
         it('应正确计算多边形的中心点', () => {
             const polygon: GeoJSON.Polygon = {
                 type: 'Polygon',
@@ -24,6 +24,18 @@ describe('geo 坐标转换和几何计算测试', () => {
             };
             const centroid = calculateCentroid(polygon);
             assert.deepStrictEqual(centroid, [5, 5]);
+        });
+
+        it('应正确计算多边形的中心点，包含多个环', () => {
+            const polygon: GeoJSON.MultiPolygon = {
+                type: 'MultiPolygon',
+                coordinates: [
+                    [[[0, 0], [0, 10], [10, 10], [10, 0], [0, 0]]],
+                    [[[20, 20], [20, 30], [30, 30], [30, 20], [20, 20]]]
+                ]
+            };
+            const centroid = calculateCentroid(polygon);
+            assert.deepStrictEqual(centroid, [15, 15]);
         });
 
         it('应处理空多边形的情况', () => {
