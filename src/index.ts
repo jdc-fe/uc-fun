@@ -1,11 +1,13 @@
 import { percent, toFixed, isNumber, randomNum, fmtNumber } from './number';
 import groupArray from './groupArray';
-import { convert3857ToWGS84, appendCentroid, calculateCentroid } from './geo';
+import {
+  convert3857ToWGS84, appendCentroid, calculateCentroid, convertWGS84To3857
+} from './geo';
 import genList from './genList';
 
 export {
   percent, toFixed, isNumber, randomNum, fmtNumber, groupArray,
-  convert3857ToWGS84, appendCentroid, calculateCentroid,
+  convert3857ToWGS84, convertWGS84To3857, appendCentroid, calculateCentroid,
   genList
 }
 

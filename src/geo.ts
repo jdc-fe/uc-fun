@@ -4,11 +4,24 @@
  * @param {number} y 3857 坐标系的 y 坐标
  * @returns {{ longitude: number; latitude: number }} WGS84 坐标系的经纬度对象
  */
-export function convert3857ToWGS84(x: number, y: number): { longitude: number; latitude: number } {
+export function convert3857ToWGS84(x: number, y: number): { longitude: number, latitude: number } {
   const R: number = 6378137; // WGS84 椭球体的长半轴
   const longitude: number = (x / R) * (180 / Math.PI);
   const latitude: number = (2 * Math.atan(Math.exp(y / R)) - Math.PI / 2) * (180 / Math.PI);
   return { longitude, latitude };
+}
+
+/**
+ * 将 WGS84 坐标系转换为 3857 坐标系
+ */
+export function convertWGS84To3857(longitude: number, latitude: number): { x: number, y: number } {
+  if (longitude < -180 || longitude > 180 || latitude < -90 || latitude > 90) {
+    throw new Error('Invalid coordinates: Longitude must be between -180 and 180, Latitude must be between -90 and 90.');
+  }
+  const R = 6378137; // 地球半径
+  const x = (longitude * Math.PI / 180) * R;
+  const y = (Math.log(Math.tan((Math.PI / 4) + (latitude * Math.PI / 360))) * R);
+  return { x, y };
 }
 
 /**

@@ -2,6 +2,8 @@
 - [ ] 修改 typedoc-theme 将测试用例作为函数使用示例
   - 参考项目 typedoc-custom-theme-demo
 
+## 1.2.4
+- 增加 WGS84 坐标系转换为 3857 坐标系
 ## 1.2.3
 - geo.calculateCentroid 兼容 MultiPolygon
 
