@@ -85,9 +85,9 @@ const DEFAULT_UNITS: Unit[] = [
  */
 export function fmtNumber(value: number, units: Unit[] = DEFAULT_UNITS): Unit {
   for (const item of units) {
-      if (value >= item.value) {
-          return { value: toFixed(value / item.value, 1), symbol: item.symbol };
-      }
+    if (value >= item.value) {
+      return { value: toFixed(value / item.value, 1), symbol: item.symbol };
+    }
   }
 
   return { value, symbol: '' };
