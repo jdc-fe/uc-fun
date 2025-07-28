@@ -5,11 +5,13 @@ import {
 } from './geo';
 import genList from './genList';
 import jsonp from './jsonp';
+import { getIdxByRange } from './getIdxByRange';
 
 export {
   percent, toFixed, isNumber, randomNum, fmtNumber, groupArray,
   convert3857ToWGS84, convertWGS84To3857, appendCentroid, calculateCentroid,
-  genList, jsonp
+  genList, jsonp,
+  getIdxByRange
 }
 
 export { default as randomStr } from './randomStr';
