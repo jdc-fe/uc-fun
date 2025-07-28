@@ -4,11 +4,12 @@ import {
   convert3857ToWGS84, appendCentroid, calculateCentroid, convertWGS84To3857
 } from './geo';
 import genList from './genList';
+import jsonp from './jsonp';
 
 export {
   percent, toFixed, isNumber, randomNum, fmtNumber, groupArray,
   convert3857ToWGS84, convertWGS84To3857, appendCentroid, calculateCentroid,
-  genList
+  genList, jsonp
 }
 
 export { default as randomStr } from './randomStr';
