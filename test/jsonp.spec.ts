@@ -2,7 +2,7 @@ import assert = require('power-assert');
 import Sinon = require('sinon');
 import jsonp, { buildUrl } from '../src/jsonp';
 
-describe.only('jsonp', () => {
+describe('jsonp', () => {
   let server: Sinon.SinonFakeServer;
   beforeEach(() => {
     server = Sinon.fakeServer.create();

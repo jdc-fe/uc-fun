@@ -2,6 +2,25 @@
 - [ ] 修改 typedoc-theme 将测试用例作为函数使用示例
   - 参考项目 typedoc-custom-theme-demo
 
+## 1.2.7
+- getIdxByRange
+```
+/**
+ * 获取数据分界线 idx
+ * @param {number[]} list 分界线
+ * @param {number} num 当前要比较的值
+ * @returns {number}
+ * @eg
+ *    const colors = ['red', 'yellow', 'blue'];
+ *    const idx = getIndexByRange([100, 80, 60], 70)
+ *    const color = colors[idx] // 蓝色
+ *
+ *    num > 100 return 0
+ *    80 < num <= 100 return 1
+ *    60 < num <= 80 return 2
+ *    <= 60 return -1
+ */
+```
 ## 1.2.5
 - 增加 jsonp 请求
 ## 1.2.4
