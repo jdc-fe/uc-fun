@@ -1,68 +1,126 @@
 import assert = require('power-assert');
-import { convert3857ToWGS84, appendCentroid, calculateCentroid } from '../src/geo';
+import {
+  convert3857ToWGS84,
+  appendCentroid,
+  calculateCentroid
+} from '../src/geo';
 
 describe('geo 坐标转换和几何计算测试', () => {
-    describe('convert3857ToWGS84', () => {
-        it('应正确转换 3857 坐标到 WGS84 坐标', () => {
-            const { longitude, latitude } = convert3857ToWGS84(111319.49079327357, 0);
-            assert(Math.abs(longitude - 1) < 1e-10); // 允许一定的误差范围
-            assert(Math.abs(latitude - 0) < 1e-10);
-        });
-
-        it('应正确转换负值的 3857 坐标到 WGS84 坐标', () => {
-            const { longitude, latitude } = convert3857ToWGS84(-111319.49079327357, 0);
-            assert(Math.abs(longitude + 1) < 1e-10);
-            assert(Math.abs(latitude - 0) < 1e-10);
-        });
+  describe('convert3857ToWGS84', () => {
+    it('应正确转换 3857 坐标到 WGS84 坐标', () => {
+      const {
+        longitude,
+        latitude
+      } = convert3857ToWGS84(111319.49079327357, 0);
+      assert(Math.abs(longitude - 1) < 1e-10); // 允许一定的误差范围
+      assert(Math.abs(latitude - 0) < 1e-10);
+      // cdwd: '5302.37350900008',
+      // cdjd: '-12279.4507503535',
+      assert.deepEqual(
+        convert3857ToWGS84(-12279.4507503535, 5302.37350900008), {
+          longitude: -0.11030818289635476,
+          latitude: 0.047632026165886396
+        }
+      );
+      assert.deepEqual(
+        convert3857ToWGS84(-7541.609314190654, 1601.902599628878), {
+          longitude: -0.06774742913795606,
+          latitude: 0.014390135737897766
+        }
+      )
     });
 
-    describe('calculateCentroid', () => {
-        it('应正确计算多边形的中心点', () => {
-            const polygon: GeoJSON.Polygon = {
-                type: 'Polygon',
-                coordinates: [[[0, 0], [0, 10], [10, 10], [10, 0], [0, 0]]]
-            };
-            const centroid = calculateCentroid(polygon);
-            assert.deepStrictEqual(centroid, [5, 5]);
-        });
+    it('应正确转换负值的 3857 坐标到 WGS84 坐标', () => {
+      const {
+        longitude,
+        latitude
+      } = convert3857ToWGS84(-111319.49079327357, 0);
+      assert(Math.abs(longitude + 1) < 1e-10);
+      assert(Math.abs(latitude - 0) < 1e-10);
+    });
+  });
 
-        it('应正确计算多边形的中心点，包含多个环', () => {
-            const polygon: GeoJSON.MultiPolygon = {
-                type: 'MultiPolygon',
-                coordinates: [
-                    [[[0, 0], [0, 10], [10, 10], [10, 0], [0, 0]]],
-                    [[[20, 20], [20, 30], [30, 30], [30, 20], [20, 20]]]
-                ]
-            };
-            const centroid = calculateCentroid(polygon);
-            assert.deepStrictEqual(centroid, [15, 15]);
-        });
-
-        it('应处理空多边形的情况', () => {
-            const polygon: GeoJSON.Polygon = {
-                type: 'Polygon',
-                coordinates: [[]]
-            };
-            const centroid = calculateCentroid(polygon);
-            assert.strictEqual(centroid, null);
-        });
+  describe('calculateCentroid', () => {
+    it('应正确计算多边形的中心点', () => {
+      const polygon: GeoJSON.Polygon = {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [0, 0],
+            [0, 10],
+            [10, 10],
+            [10, 0],
+            [0, 0]
+          ]
+        ]
+      };
+      const centroid = calculateCentroid(polygon);
+      assert.deepStrictEqual(centroid, [5, 5]);
     });
 
-    describe('appendCentroid', () => {
-        it('应为 GeoJSON 要素添加中心点属性', () => {
-            const geojson: GeoJSON.FeatureCollection = {
-                type: 'FeatureCollection',
-                features: [{
-                    type: 'Feature',
-                    geometry: {
-                        type: 'Polygon',
-                        coordinates: [[[0, 0], [0, 10], [10, 10], [10, 0], [0, 0]]]
-                    },
-                    properties: {}
-                }]
-            };
-            const result = appendCentroid(geojson);
-            assert.deepStrictEqual(result.features[0].properties.centroid, [5, 5]);
-        });
+    it('应正确计算多边形的中心点，包含多个环', () => {
+      const polygon: GeoJSON.MultiPolygon = {
+        type: 'MultiPolygon',
+        coordinates: [
+          [
+            [
+              [0, 0],
+              [0, 10],
+              [10, 10],
+              [10, 0],
+              [0, 0]
+            ]
+          ],
+          [
+            [
+              [20, 20],
+              [20, 30],
+              [30, 30],
+              [30, 20],
+              [20, 20]
+            ]
+          ]
+        ]
+      };
+      const centroid = calculateCentroid(polygon);
+      assert.deepStrictEqual(centroid, [15, 15]);
     });
+
+    it('应处理空多边形的情况', () => {
+      const polygon: GeoJSON.Polygon = {
+        type: 'Polygon',
+        coordinates: [
+          []
+        ]
+      };
+      const centroid = calculateCentroid(polygon);
+      assert.strictEqual(centroid, null);
+    });
+  });
+
+  describe('appendCentroid', () => {
+    it('应为 GeoJSON 要素添加中心点属性', () => {
+      const geojson: GeoJSON.FeatureCollection = {
+        type: 'FeatureCollection',
+        features: [{
+          type: 'Feature',
+          geometry: {
+            type: 'Polygon',
+            coordinates: [
+              [
+                [0, 0],
+                [0, 10],
+                [10, 10],
+                [10, 0],
+                [0, 0]
+              ]
+            ]
+          },
+          properties: {}
+        }]
+      };
+      const result = appendCentroid(geojson);
+      assert.deepStrictEqual(result.features[0].properties.centroid, [5, 5]);
+    });
+  });
 });
