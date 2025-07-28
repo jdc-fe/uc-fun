@@ -16,7 +16,7 @@ describe('geo 坐标转换和几何计算测试', () => {
         });
     });
 
-    describe.only('calculateCentroid', () => {
+    describe('calculateCentroid', () => {
         it('应正确计算多边形的中心点', () => {
             const polygon: GeoJSON.Polygon = {
                 type: 'Polygon',

@@ -8,7 +8,7 @@ describe('number', () => {
     assert(percent(1, 3) === '33.33%');
   });
 
-  it.only('isNumber', () => {
+  it('isNumber', () => {
     assert(isNumber('') === false);
     assert(isNumber(null) === false);
     assert(isNumber(undefined) === false);
@@ -25,7 +25,7 @@ describe('number', () => {
     assert(toFixed(1.2, 0) === 1);
   });
 
-  it.only('fmtNumber', () => {
+  it('fmtNumber', () => {
     assert.deepEqual(fmtNumber(10000), { value: 1, symbol: '万' })
     assert.deepEqual(fmtNumber(15000), { value: 1.5, symbol: '万' })
     assert.deepEqual(fmtNumber(1500), { value: 1.5, symbol: '千' })
