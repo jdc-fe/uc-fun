@@ -85,3 +85,79 @@ export function calculateCentroid(geometry: GeoJSON.Polygon | GeoJSON.MultiPolyg
   }
   return [x / (3.0 * A), y / (3.0 * A)];
 }
+
+const LENGTH_OF_ONE_DEGREE = 111.32; // 1° ≈ 111.32 km（简化版地理计算）
+/**
+ * 根据起点、半径、角度 计算终点坐标
+ * @param {[number, number]} start - 圆心坐标 [经度, 纬度]
+ * @param {number} radiusKm - 半径（公里）
+ * @param {number} bearing - 方向角度（0°为正北，90°为正东）
+ **/
+export function calculateRadiusEnd(start: GeoJSON.Position, radiusKm: number, bearing = 90): GeoJSON.Position {
+  const angleRad = (bearing * Math.PI) / 180; // 角度转弧度
+  const dx = (radiusKm * Math.sin(angleRad)) / LENGTH_OF_ONE_DEGREE;
+  const dy = (radiusKm * Math.cos(angleRad)) / LENGTH_OF_ONE_DEGREE;
+  return [start[0] + dx, start[1] + dy];
+}
+
+/**
+ * 生成圆形坐标点（GeoJSON Polygon）
+ * @param {[number, number]} center - 圆心坐标 [经度, 纬度]
+ * @param {number} radiusKm - 半径（公里）
+ * @param {number} [points=64] - 圆形的分段数（越多越平滑）
+ */
+export function createCircle(center: GeoJSON.Position, radiusKm: number, points = 64): GeoJSON.Feature {
+  const coords = [];
+  for (let i = 0; i < points; i++) {
+    const angle = (i / points) * 2 * Math.PI; // 当前角度（弧度）
+    const dx = (radiusKm * Math.cos(angle)) / LENGTH_OF_ONE_DEGREE;
+    const dy = (radiusKm * Math.sin(angle)) / LENGTH_OF_ONE_DEGREE;
+    coords.push([center[0] + dx, center[1] + dy]);
+  }
+  coords.push(coords[0]); // 闭合圆形
+  return {
+    type: 'Feature',
+    properties: {
+      centroid: center
+    },
+    geometry: {
+      type: 'Polygon',
+      coordinates: [coords],
+    },
+  };
+}
+
+// 根据中心点和半径创建一个正方形
+export function createSquare(center: GeoJSON.Position, radiusKm: number): GeoJSON.Feature {
+  const radius = radiusKm / LENGTH_OF_ONE_DEGREE;
+  const topLeft = [center[0] - radius, center[1] + radius];
+  const topRight = [center[0] + radius, center[1] + radius];
+  const bottomRight = [center[0] + radius, center[1] - radius];
+  const bottomLeft = [center[0] - radius, center[1] - radius];
+
+  return {
+    type: 'Feature',
+    properties: {
+      centroid: center
+    },
+    geometry: {
+      type: 'Polygon',
+      coordinates: [[topLeft, topRight, bottomRight, bottomLeft, topLeft]],
+    },
+  };
+}
+
+const R = 6378137;
+/**
+ * 计算两点直接的直线距离， 单位 m
+ */
+export function getDistanceByLatlng(lat1: number, lng1: number, lat2: number, lng2: number): number {
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLng = (lng2 - lng1) * Math.PI / 180;
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+    Math.sin(dLng / 2) * Math.sin(dLng / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c;
+}

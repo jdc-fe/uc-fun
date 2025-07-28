@@ -1,8 +1,11 @@
 import { percent, toFixed, isNumber, randomNum, fmtNumber } from './number';
 import groupArray from './groupArray';
 import {
-  convert3857ToWGS84, appendCentroid, calculateCentroid, convertWGS84To3857
+  convert3857ToWGS84, appendCentroid, calculateCentroid,
+  convertWGS84To3857, getDistanceByLatlng
 } from './geo';
+import { createCircle, createSquare, calculateRadiusEnd } from './geo';
+
 import genList from './genList';
 import jsonp from './jsonp';
 import { getIdxByRange } from './getIdxByRange';
@@ -10,8 +13,9 @@ import { getIdxByRange } from './getIdxByRange';
 export {
   percent, toFixed, isNumber, randomNum, fmtNumber, groupArray,
   convert3857ToWGS84, convertWGS84To3857, appendCentroid, calculateCentroid,
+  getDistanceByLatlng, createCircle, createSquare, calculateRadiusEnd,
   genList, jsonp,
-  getIdxByRange
+  getIdxByRange,
 }
 
 export { default as randomStr } from './randomStr';

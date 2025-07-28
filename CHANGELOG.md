@@ -2,6 +2,12 @@
 - [ ] 修改 typedoc-theme 将测试用例作为函数使用示例
   - 参考项目 typedoc-custom-theme-demo
 
+## 1.3.0
+- 新增地理坐标计算：
+  - getDistanceByLatlng 计算两点直接的直线距离， 单位 m
+  - createCircle 生成圆形坐标点（GeoJSON Polygon）
+  - calculateRadiusEnd 根据起点、半径、角度 计算终点坐标
+  - createSquare 根据中心点和半径创建一个正方形
 ## 1.2.7
 - getIdxByRange
 ```
