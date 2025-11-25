@@ -2,6 +2,21 @@
 - [ ] 修改 typedoc-theme 将测试用例作为函数使用示例
   - 参考项目 typedoc-custom-theme-demo
 
+## 1.3.1
+- 新增重试函数
+```js
+// 使用示例：
+await retry(() => fetch('/api/data').then(r => r.json()));
+await retry(() => axios.get('/api/users'), {
+  retries: 2,
+  delay: 100,
+  // 是否使用指数退避(默认false)，每次重试后延迟时间增加一倍
+  exponential: true,
+  onRetry: () => {}
+});
+await retry(() => someAsyncFunction());
+```
+
 ## 1.3.0
 - 新增地理坐标计算：
   - getDistanceByLatlng 计算两点直接的直线距离， 单位 m

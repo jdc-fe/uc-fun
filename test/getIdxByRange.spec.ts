@@ -1,7 +1,7 @@
 import assert = require('power-assert');
 import { getIdxByRange } from '../src/getIdxByRange';
 
-describe.only('getIdxByRange', () => {
+describe('getIdxByRange', () => {
   it('normal', () => {
     const range = [100, 80, 60];
     assert.equal(getIdxByRange(range, 90), 1);
