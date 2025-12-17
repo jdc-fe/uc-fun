@@ -2,7 +2,8 @@ import assert = require('power-assert');
 import {
   convert3857ToWGS84,
   appendCentroid,
-  calculateCentroid
+  calculateCentroid,
+  createSector
 } from '../src/geo';
 
 describe('geo 坐标转换和几何计算测试', () => {
@@ -123,4 +124,11 @@ describe('geo 坐标转换和几何计算测试', () => {
       assert.deepStrictEqual(result.features[0].properties.centroid, [5, 5]);
     });
   });
+
+  describe('createSector', () => {
+    it('normal', () => {
+      const geojson = createSector([-0.06, 0.01], 0.1, 0, 45);
+      console.log(JSON.stringify(geojson));
+    })
+  })
 });

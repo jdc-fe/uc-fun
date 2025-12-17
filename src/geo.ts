@@ -110,8 +110,8 @@ export function createCircle(center: GeoJSON.Position, radiusKm: number, points 
   const coords = [];
   for (let i = 0; i < points; i++) {
     const angle = (i / points) * 2 * Math.PI; // 当前角度（弧度）
-    const dx = (radiusKm * Math.cos(angle)) / LENGTH_OF_ONE_DEGREE;
-    const dy = (radiusKm * Math.sin(angle)) / LENGTH_OF_ONE_DEGREE;
+    const dx = (radiusKm * Math.sin(angle)) / LENGTH_OF_ONE_DEGREE;
+    const dy = (radiusKm * Math.cos(angle)) / LENGTH_OF_ONE_DEGREE;
     coords.push([center[0] + dx, center[1] + dy]);
   }
   coords.push(coords[0]); // 闭合圆形
@@ -119,6 +119,54 @@ export function createCircle(center: GeoJSON.Position, radiusKm: number, points 
     type: 'Feature',
     properties: {
       centroid: center
+    },
+    geometry: {
+      type: 'Polygon',
+      coordinates: [coords],
+    },
+  };
+}
+
+export function createSector(
+  center: GeoJSON.Position,
+  radiusKm: number,
+  startAngle: number,
+  endAngle: number,
+  points = 64
+): GeoJSON.Feature {
+  const coords = [];
+
+  // 添加中心点
+  coords.push(center);
+
+  // 生成扇形弧线上的点
+  for (let i = 0; i <= points; i++) {
+    // 计算当前角度（从startAngle到endAngle）
+    const progress = i / points;
+    const angle = startAngle + (endAngle - startAngle) * progress;
+    const angleRad = angle * Math.PI / 180; // 转换为弧度
+
+    // 计算偏移量（考虑地球曲率）
+    const dx = (radiusKm * Math.sin(angleRad)) / LENGTH_OF_ONE_DEGREE;
+    const dy = (radiusKm * Math.cos(angleRad)) / LENGTH_OF_ONE_DEGREE;
+
+    // 计算实际坐标
+    const lon = center[0] + dx;
+    const lat = center[1] + dy;
+    coords.push([lon, lat]);
+  }
+
+  // 闭合扇形（从最后一个点回到中心点）
+  coords.push(center);
+
+  return {
+    type: 'Feature',
+    properties: {
+      centroid: center,
+      radius: radiusKm,
+      startAngle: startAngle,
+      endAngle: endAngle,
+      angleRange: endAngle - startAngle
     },
     geometry: {
       type: 'Polygon',

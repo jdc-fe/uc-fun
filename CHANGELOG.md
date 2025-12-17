@@ -1,6 +1,11 @@
 # TODO
 - [ ] 修改 typedoc-theme 将测试用例作为函数使用示例
   - 参考项目 typedoc-custom-theme-demo
+## 1.3.2
+- 新增生成扇形 geojson 函数 *createSector*
+```js
+const geojson = createSector([-0.06, 0.01], 0.1, 0, 45);
+```
 
 ## 1.3.1
 - 新增重试函数

@@ -4,7 +4,7 @@ import {
   convert3857ToWGS84, appendCentroid, calculateCentroid,
   convertWGS84To3857, getDistanceByLatlng
 } from './geo';
-import { createCircle, createSquare, calculateRadiusEnd } from './geo';
+import { createCircle, createSquare, calculateRadiusEnd, createSector } from './geo';
 
 import genList from './genList';
 import jsonp from './jsonp';
@@ -14,6 +14,7 @@ export {
   percent, toFixed, isNumber, randomNum, fmtNumber, groupArray,
   convert3857ToWGS84, convertWGS84To3857, appendCentroid, calculateCentroid,
   getDistanceByLatlng, createCircle, createSquare, calculateRadiusEnd,
+  createSector,
   genList, jsonp,
   getIdxByRange,
 }
