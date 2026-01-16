@@ -76,6 +76,7 @@ const DEFAULT_UNITS: Unit[] = [
  * 格式化数字，将大数字转换为指定单位的表示形式
  * @param {number} value 需要格式化的数字
  * @param {Unit[]} units [{ value, symbol }] 转化单位，默认 千, 万, 亿, 万亿
+ * @param {number} decimal 保留小数位，默认 1
  *
  * @returns {Unit} 格式化后的字符串或原始数字
  *
@@ -83,12 +84,32 @@ const DEFAULT_UNITS: Unit[] = [
  *  fmtNumber(15000)
  *  { value: 1.5, symbol: '万' }
  */
-export function fmtNumber(value: number, units: Unit[] = DEFAULT_UNITS): Unit {
+export function fmtNumber(value: number, units: Unit[] | number = DEFAULT_UNITS, decimal: number = 1): Unit {
+  if (!isNumber(value)) return { value, symbol: '' };
+  // 如果 units 是数字， 就赋值给 decimal
+  if (typeof units === 'number') {
+    decimal = units;
+    units = DEFAULT_UNITS;
+  }
+
   for (const item of units) {
     if (value >= item.value) {
-      return { value: toFixed(value / item.value, 1), symbol: item.symbol };
+      return { value: toFixed(value / item.value, decimal), symbol: item.symbol };
     }
   }
 
   return { value, symbol: '' };
+}
+
+/**
+ * 数字每三位加逗号
+ * @param {number} num 数字
+ * @returns {string} 格式化后的字符串
+ *
+ * @example
+ *  numberToThree(1000) = '1,000'
+ *  numberToThree(0.00001) = '0.00,001'
+ * */
+export function numberToThree(num: number): string {
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }

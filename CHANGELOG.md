@@ -1,6 +1,9 @@
 # TODO
 - [ ] 修改 typedoc-theme 将测试用例作为函数使用示例
   - 参考项目 typedoc-custom-theme-demo
+## 1.3.3
+- 增强fmtNumber函数支持小数位参数
+- 新增numberToThree函数
 ## 1.3.2
 - 新增生成扇形 geojson 函数 *createSector*
 ```js
