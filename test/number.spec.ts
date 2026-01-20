@@ -51,6 +51,10 @@ describe('number', () => {
     assert.deepEqual(fmtNumber(0.0000012, units), { value: 0.0000012, symbol: '' })
   })
 
+  it.only('fmtNumber 入参为负数也要正常工作', () => {
+    assert.deepEqual(fmtNumber(-10000), { value: -1, symbol: '万' })
+  })
+
   it('numberToThree', () => {
     assert.equal(numberToThree(1000), '1,000');
     assert.equal(numberToThree(0.00001), '0.00,001');

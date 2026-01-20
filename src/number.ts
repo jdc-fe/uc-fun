@@ -91,9 +91,9 @@ export function fmtNumber(value: number, units: Unit[] | number = DEFAULT_UNITS,
     decimal = units;
     units = DEFAULT_UNITS;
   }
-
+  const abs = Math.abs(value);
   for (const item of units) {
-    if (value >= item.value) {
+    if (abs >= item.value) {
       return { value: toFixed(value / item.value, decimal), symbol: item.symbol };
     }
   }
